@@ -10,12 +10,12 @@ jobs:
     steps:
       - name: 1.Завантажити код на репо
         uses: actions/checkout@v3
-
+        
       - name: 2.Логін у докер хаб
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.Docker_Name }}
-          password: ${{ secrets.Docker_Password }}
+          username: ${{ secrets.Docker_Name }} # Додано пробіл після :
+          password: ${{ secrets.Docker_Password }} # Виправлено 'passwoed' та додано пробіл
 
       - name: 3.Зібрати і відправити у Docker Hub
         uses: docker/build-push-action@v2
