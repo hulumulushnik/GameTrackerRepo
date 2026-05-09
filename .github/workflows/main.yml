@@ -23,7 +23,7 @@ jobs:
           password: ${{ secrets.DOCKER_Password }}
  
       - name: 4. Собрать и отправить образ в Docker Hub
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v2
         with:
           context: .
           # Шлях залишаємо як у вашій останній спробі, оскільки Docker його бачить
