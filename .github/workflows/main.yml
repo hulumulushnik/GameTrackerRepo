@@ -17,7 +17,7 @@ jobs:
             passwoed:${{secrets.Docker_Password}}
 
         - name: 3.Зібрати і відправити у Docker Hub
-          uses: docker/login-action@v2
+          uses: docker/build-push-action@v2
           with:
             context: .
             file: Lesson_6(GameTracker)\Lesson_6(GameTracker)/DockerFile
