@@ -10,20 +10,20 @@ jobs:
     steps:
       - name: 1.Завантажити код на репо
         uses: actions/checkout@v3
-        
+
       - name: 2.Логін у докер хаб
         uses: docker/login-action@v2
         with:
-          # ОБОВ'ЯЗКОВО додайте пробіл після двокрапки!
+          # Обов'язково з пробілом після двокрапки
           username: ${{ secrets.Docker_Name }}
-          password: ${{ secrets.Docker_Password }} # Також виправлено 'passwoed'
+          password: ${{ secrets.Docker_Password }}
 
       - name: 3.Зібрати і відправити у Docker Hub
         uses: docker/build-push-action@v2
         with:
           context: .
-          # Використовуйте прямі слеші для Linux-раннера
+          # Шлях до Dockerfile з використанням прямих слешів
           file: ./Lesson_6(GameTracker)/Lesson_6(GameTracker)/DockerFile
           push: true
-          # Пробіл після tags: також обов'язковий
-          tags: ${{ secrets.Docker_Name }}/gametracker:v${{ github.run_number }}}
+          # Виправлено: без пробілів навколо / та без зайвої } у кінці
+          tags: ${{ secrets.Docker_Name }}/gametracker:v${{ github.run_number }}
