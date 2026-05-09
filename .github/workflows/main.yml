@@ -14,7 +14,7 @@ jobs:
       - name: 2.Логін у докер хаб
         uses: docker/login-action@v2
         with:
-          # Обов'язково з пробілом після двокрапки
+          # ПЕРЕВІРТЕ: назва секрету в GitHub має бути ТОЧНО такою ж
           username: ${{ secrets.Docker_Name }}
           password: ${{ secrets.Docker_Password }}
 
@@ -22,8 +22,8 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          # Шлях до Dockerfile з використанням прямих слешів
-          file: ./Контейнеризація та оркестрація додатків Docker, Kubernetes\Lesson_6/Lesson_6(GameTracker)/Lesson_6(GameTracker)/DockerFile
+          # Якщо DockerFile лежить у тій самій папці, де ви робили git init:
+          file: ./DockerFile
           push: true
-          # Виправлено: без пробілів навколо / та без зайвої } у кінці
+          # Важливо: жодних пробілів навколо слеша
           tags: ${{ secrets.Docker_Name }}/gametracker:v${{ github.run_number }}
