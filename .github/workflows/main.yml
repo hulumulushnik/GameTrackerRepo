@@ -26,7 +26,8 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: ./Lesson_6/Lesson_6/Lesson_6(GameTracker)/Lesson_6(GameTracker)/Dockerfile
+          # Шлях залишаємо як у вашій останній спробі, оскільки Docker його бачить
+          file: ./Lesson_6/Lesson_6(GameTracker)/Lesson_6(GameTracker)/Dockerfile
           push: true
           tags: |
             ${{ secrets.DOCKER_Name }}/gametracker:latest
