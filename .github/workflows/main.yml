@@ -1,29 +1,33 @@
-name: Збірка і ПУш у докер хаб
-
-on: 
-  push: 
+name: Сборка и пуш в Docker Hub
+ 
+on:
+  push:
     branches: ["master", "main"]
-
+  workflow_dispatch:
+ 
 jobs:
-  build: 
+  build:
     runs-on: ubuntu-latest
+ 
     steps:
-      - name: 1.Завантажити код на репо
-        uses: actions/checkout@v3
-
-      - name: 2.Логін у докер хаб
-        uses: docker/login-action@v2
+      - name: 1. Загрузить код из репозитория
+        uses: actions/checkout@v4
+ 
+      - name: 2. Показать файлы
+        run: find . -maxdepth 5 -type f
+ 
+      - name: 3. Логин в Docker Hub
+        uses: docker/login-action@v3
         with:
-          # ПЕРЕВІРТЕ: назва секрету в GitHub має бути ТОЧНО такою ж
-          username: ${{ secrets.Docker_Name }}
-          password: ${{ secrets.Docker_Password }}
-
-      - name: 3.Зібрати і відправити у Docker Hub
-        uses: docker/build-push-action@v2
+          username: ${{ secrets.DOCKER_Name }}
+          password: ${{ secrets.DOCKER_Password }}
+ 
+      - name: 4. Собрать и отправить образ в Docker Hub
+        uses: docker/build-push-action@v6
         with:
           context: .
-          # Якщо DockerFile лежить у тій самій папці, де ви робили git init:
-          file: ./DockerFile
+          file: ./Dockerfile
           push: true
-          # Важливо: жодних пробілів навколо слеша
-          tags: ${{ secrets.Docker_Name }}/gametracker:v${{ github.run_number }}
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/gametracker:latest
+            ${{ secrets.DOCKER_USERNAME }}/gametracker:v${{ github.run_number }}
