@@ -29,4 +29,4 @@ jobs:
           # Шлях залишаємо як у вашій останній спробі, оскільки Docker його бачить
           file: ./Lesson_6/Lesson_6(GameTracker)/Lesson_6(GameTracker)/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_Name }}/gametracker:v${{ github.run_number }}
+          tags: hulumulushnik/gametracker:v${{ github.run_number }}
