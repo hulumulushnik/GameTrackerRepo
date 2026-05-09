@@ -23,7 +23,7 @@ jobs:
         with:
           context: .
           # Шлях до Dockerfile з використанням прямих слешів
-          file: ./Lesson_6(GameTracker)/Lesson_6(GameTracker)/DockerFile
+          file: ./Контейнеризація та оркестрація додатків Docker, Kubernetes\Lesson_6/Lesson_6(GameTracker)/Lesson_6(GameTracker)
           push: true
           # Виправлено: без пробілів навколо / та без зайвої } у кінці
           tags: ${{ secrets.Docker_Name }}/gametracker:v${{ github.run_number }}
