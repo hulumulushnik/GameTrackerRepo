@@ -29,5 +29,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/gametracker:latest
-            ${{ secrets.DOCKER_USERNAME }}/gametracker:v${{ github.run_number }}
+            ${{ secrets.DOCKER_Name }}/gametracker:latest
+            ${{ secrets.DOCKER_Name }}/gametracker:v${{ github.run_number }}
