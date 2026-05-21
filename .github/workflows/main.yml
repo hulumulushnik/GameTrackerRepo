@@ -27,7 +27,7 @@ jobs:
         with:
           context: .
           # Шлях залишаємо як у вашій останній спробі, оскільки Docker його бачить
-          file: "Контейнеризація та оркестрація додатків Docker, Kubernetes/Lesson_6/Lesson_6(GameTracker)/Lesson_6(GameTracker)/Dockerfile"
+          file: Docker_Kubernetes/Lesson_6/Lesson_6(GameTracker)/Lesson_6(GameTracker)/Dockerfile
           push: true
           tags: hulumulushnik/gametracker:v${{ github.run_number }}
 
