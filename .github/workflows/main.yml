@@ -26,8 +26,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          # Шлях залишаємо як у вашій останній спробі, оскільки Docker його бачить
-          file: Docker_Kubernetes/Lesson_6/Lesson_6(GameTracker)/Lesson_6(GameTracker)/Dockerfile
+          file: Dockerfile
           push: true
           tags: hulumulushnik/gametracker:v${{ github.run_number }}
 
